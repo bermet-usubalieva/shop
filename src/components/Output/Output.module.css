@@ -1,0 +1,9 @@
+.output {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 16px;
+    justify-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
