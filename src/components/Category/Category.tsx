@@ -7,6 +7,7 @@ import s from './Category.module.css';
 const Category: FC = () => {
     const dispatch = useAppDispatch();
     const { categories, error, loading } = useAppSelector(state => state.category);
+    const { page } = useAppSelector(state => state.shop)
 
     const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
     const [selectedSort, setSelectedSort] = useState<string>('all');
@@ -22,7 +23,7 @@ const Category: FC = () => {
 
     const handleAllClick = () => {
         setSelectedCategory(null);
-        dispatch(getAllListProducts());
+        dispatch(getAllListProducts(page));
     };
 
     const handleSortChange = (event: React.ChangeEvent<HTMLSelectElement>) => {

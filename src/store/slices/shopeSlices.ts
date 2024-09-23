@@ -6,20 +6,23 @@ import { FullProduct, Product } from "../modules"
 type ShopeState = {
     shop: Product[],
     loading: boolean,
-    detail: null | FullProduct
+    detail: null | FullProduct,
+    page: number,
+    totalPages: number,
 }
 
 const initialState: ShopeState = {
     shop: [],
     loading: false,
     detail: null,
+    page: 1,
+    totalPages: 8,
 }
 
-export const getAllListProducts = createAsyncThunk<Product[], void, { rejectValue: string }>(
+export const getAllListProducts = createAsyncThunk<Product[], number, { rejectValue: string }>(
     'shope/getAllListProducts',
-    async (_, { rejectWithValue }) => {
-        const res = await shopeAPI.getAllProducts()
-        console.log(res)
+    async (page, { rejectWithValue }) => {
+        const res = await shopeAPI.getByPage(page)
         if (res.status !== 200) {
             return rejectWithValue('Server Error')
         }
@@ -77,11 +80,30 @@ export const getProductBySort = createAsyncThunk<Product[], { category: string; 
     }
 );
 
+// export const getDelete = createAsyncThunk<FullProduct, string, { rejectValue: string }>(
+//     'shope/getDelete',
+//     async (id, { rejectWithValue }) => {
+//         try {
+//             const res = await shopeAPI.deleteProduct(id)
+//             console.log(res)
+//             if (res.status !== 200) {
+//                 return rejectWithValue('Server Error');
+//             }
 
+//             return res.data.product
+//         } catch (error: any) {
+//             return rejectWithValue('Failed to fetch categories');
+//         }
+//     }
+// )
 const shopeSlice = createSlice({
     name: 'shope',
     initialState,
-    reducers: {},
+    reducers: {
+        setPage: (state, action) => {
+            state.page = action.payload;
+        },
+    },
     extraReducers: ({ addCase }) => {
         addCase(getAllListProducts.pending, (state) => {
             state.loading = true
@@ -123,4 +145,5 @@ const shopeSlice = createSlice({
     }
 })
 
+export const { setPage } = shopeSlice.actions;
 export default shopeSlice.reducer

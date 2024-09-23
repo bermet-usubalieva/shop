@@ -20,5 +20,11 @@ export const shopeAPI = {
     },
     getSort(category: string, pop: string) {
         return instanse.get(`products/category?type=${category}&sort=${pop}`)
+    },
+    getByPage(page: number) {
+        return instanse.get(`products?page=${page}&limit=20`)
+    },
+    deleteProduct(id: string) {
+        return instanse.delete(`products/${id}`)
     }
 }
