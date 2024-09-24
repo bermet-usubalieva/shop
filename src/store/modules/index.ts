@@ -1,4 +1,12 @@
-
+export type IProductInCart = {
+    id: number,
+    image: string,
+    price: number,
+    title: string,
+    discount: number,
+    color: string,
+    count: number,
+}
 
 export type Product = {
     id: number,

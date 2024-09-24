@@ -26,7 +26,8 @@ const ProductCard: FC<Product> = ({ discount, id, image, price, title }) => {
                         <span className={s.span}>$</span>
                         {price}
                     </p>
-                )}
+                )
+                }
             </div>
         </Link>
     );

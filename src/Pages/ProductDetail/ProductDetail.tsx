@@ -3,6 +3,9 @@ import { useSearchParams } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../hooks';
 import { getProductById } from '../../store/slices/shopeSlices';
 import s from './ProductDetail.module.css';
+import AddToCart from '../../components/AddToCart/AddToCart';
+
+
 
 const ProductDetail: FC = () => {
     const [searchParams] = useSearchParams();
@@ -16,6 +19,8 @@ const ProductDetail: FC = () => {
             dispatch(getProductById(`${query}`));
         }
     }, [query, dispatch]);
+
+
 
     if (loading) {
         return <h1>Loading...</h1>;
@@ -59,6 +64,7 @@ const ProductDetail: FC = () => {
                         </div>
                         <p className={s.desrcTitle}>About this product:</p>
                         <p className={s.description}>{detail.description}</p>
+                        <AddToCart item={{ ...detail, count: 1 }} />
                     </div>
                 </>
             )}

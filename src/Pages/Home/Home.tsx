@@ -1,10 +1,10 @@
 import React, { FC, useEffect, useRef } from 'react';
-import Header from '../../components/Header/Header';
 import { useAppDispatch, useAppSelector } from '../../hooks';
 import { getAllListProducts, setPage } from '../../store/slices/shopeSlices';
 import Output from '../../components/Output/Output';
 import s from './Home.module.css'
 import Pagination from '@mui/material/Pagination';
+import Category from '../../components/Category/Category';
 
 const Home: FC = () => {
     const dispatch = useAppDispatch()
@@ -22,7 +22,7 @@ const Home: FC = () => {
     };
     return (
         <div className={s.home}>
-            <Header />
+            <Category />
             <div className={s.wrap}>
                 <Output />
                 <Pagination

@@ -1,0 +1,40 @@
+.header {
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 40px 0 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.headerLink {
+    display: flex;
+}
+
+.cartLink {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.cartLink::after {
+    content: attr(data-count);
+    position: absolute;
+    top: 10px;
+    right: -5px;
+    font-size: 12px;
+    color: #fff;
+    background-color: #ff6f61;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+.headerSvg {
+    width: 34px;
+    color: black;
+}

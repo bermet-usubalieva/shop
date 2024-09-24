@@ -80,22 +80,6 @@ export const getProductBySort = createAsyncThunk<Product[], { category: string; 
     }
 );
 
-// export const getDelete = createAsyncThunk<FullProduct, string, { rejectValue: string }>(
-//     'shope/getDelete',
-//     async (id, { rejectWithValue }) => {
-//         try {
-//             const res = await shopeAPI.deleteProduct(id)
-//             console.log(res)
-//             if (res.status !== 200) {
-//                 return rejectWithValue('Server Error');
-//             }
-
-//             return res.data.product
-//         } catch (error: any) {
-//             return rejectWithValue('Failed to fetch categories');
-//         }
-//     }
-// )
 const shopeSlice = createSlice({
     name: 'shope',
     initialState,
