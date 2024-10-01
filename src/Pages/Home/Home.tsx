@@ -9,7 +9,6 @@ import Category from '../../components/Category/Category';
 const Home: FC = () => {
     const dispatch = useAppDispatch()
     const { page, totalPages, loading } = useAppSelector(state => state.shop)
-    const outputRef = useRef<HTMLDivElement | null>(null);
 
     useEffect(() => {
         dispatch(getAllListProducts(page));

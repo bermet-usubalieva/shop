@@ -7,6 +7,11 @@
     margin-bottom: 20px;
 }
 
+.headerRight {
+    display: flex;
+    gap: 60px;
+}
+
 .headerLink {
     display: flex;
 }

@@ -4,7 +4,6 @@ import Home from '../../Pages/Home/Home';
 import ProductDetail from '../../Pages/ProductDetail/ProductDetail';
 import Cart from '../../Pages/Cart/Cart';
 
-
 const Main: FC = () => {
     return (
         <main>

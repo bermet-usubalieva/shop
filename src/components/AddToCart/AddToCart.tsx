@@ -35,7 +35,6 @@ const AddToCart: FC<AddToCartProps> = ({ item }) => {
         } else {
             all_product.push(product)
         }
-        // console.log(all_product)
         setCount(1)
         setLSCart('cart', all_product)
         dispatch(setCartArr(all_product))
@@ -44,12 +43,12 @@ const AddToCart: FC<AddToCartProps> = ({ item }) => {
 
     return (
         <div>
-            <div>
-                <button disabled={count == 1 ? true : false} onClick={decrement}>-</button>
-                <span>{count}</span>
-                <button onClick={increment}>+</button>
+            <div className={s.btnWrap}>
+                <button className={s.minus} disabled={count == 1 ? true : false} onClick={decrement}>-</button>
+                <p className={s.spanCart}>{count}</p>
+                <button className={s.plus} onClick={increment}>+</button>
+                <button className={s.remove} onClick={addProduct}>Add to cart</button>
             </div>
-            <button onClick={addProduct}>Add to cart</button>
         </div>
     );
 };
